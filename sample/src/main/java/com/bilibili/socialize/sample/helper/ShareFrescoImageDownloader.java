@@ -56,10 +56,9 @@ public class ShareFrescoImageDownloader extends AbsImageDownloader {
                 if (result != null) {
                     ImageRequest imageRequest = ImageRequest.fromUri(imageUrl);
                     CacheKey cacheKey = DefaultCacheKeyFactory.getInstance()
-                            .getEncodedCacheKey(imageRequest);
+                            .getEncodedCacheKey(imageRequest, this);
                     BinaryResource resource = Fresco.getImagePipelineFactory()
-                            .getMainDiskStorageCache()
-                            .getResource(cacheKey);
+                            .getMainFileCache().getResource(cacheKey);
                     if (resource instanceof FileBinaryResource) {
                         File cacheFile = ((FileBinaryResource) resource).getFile();
                         try {

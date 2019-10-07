@@ -24,6 +24,7 @@ import java.util.Locale;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * 这个类只是为了演示如何分享，如果想体验分享效果，请下载哔哩哔哩动画app。
@@ -111,11 +112,5 @@ public class MainActivity extends BaseShareableActivity {
     @OnClick(R.id.btn3)
     void shareWithWrapPopSelector(View clickView) {
         startShare(clickView, false);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ButterKnife.unbind(this);
     }
 }
